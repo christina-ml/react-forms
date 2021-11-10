@@ -6,19 +6,26 @@ class UserInfoForm extends Component {
 
     this.state = {
       notARobot: false,
+      userTitle: '',
     }
   }
 
   handleFormSubmit=(event) => {
     event.preventDefault();
-    console.log("Submit trigger");
   }
 
   handleCheckboxChange=(event) => {
     this.setState({
       notARobot: event.target.checked,
     })
-    // console.log("Checkbox trigger")
+  }
+
+  handleSelectChange=(event) => {
+    this.setState({
+      userTitle: event.target.value,
+    })
+    // console.log("Select change")
+    // console.log(event.target.value)
   }
 
   render(){
@@ -32,11 +39,22 @@ class UserInfoForm extends Component {
           <input 
             id="not-robot"
             type="checkbox" 
-            // checked={}
+            checked={this.state.notARobot}
             onChange={this.handleCheckboxChange}
           />
         </label>
-
+        <select 
+          value={this.state.userTitle}
+          onChange={this.handleSelectChange}
+          name="" 
+          id="">
+            <option value="">--Please select title--</option>
+            <option value="mr">Mr.</option>
+            <option value="ms">Ms.</option>
+            <option value="mrs">Mrs.</option>
+            <option value="mx">Mx.</option>
+            <option value="dr">Dr.</option>
+        </select>
 
         <button type="submit">Submit</button>
       </form>
