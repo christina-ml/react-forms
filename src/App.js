@@ -7,7 +7,9 @@ import UserInfoForm from './UserInfoForm';
 
 const App=()=>{
   return (
-    <UserInfoForm />
+    <form>
+      <input type="text" name="title" placeholder="Please enter a title" />
+    </form>
   )
 }
 
