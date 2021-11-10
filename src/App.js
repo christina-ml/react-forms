@@ -7,8 +7,9 @@ import UserInfoForm from './UserInfoForm';
 
 const App=()=>{
   return (
-    <form>
-      <input type="text" name="title" placeholder="Please enter a title" />
+    <form onSubmit={} className="form-container">
+      <h2>User Information</h2>
+      <button type="submit">Submit</button>
     </form>
   )
 }
