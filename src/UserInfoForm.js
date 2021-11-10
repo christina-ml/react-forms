@@ -7,6 +7,7 @@ class UserInfoForm extends Component {
     this.state = {
       notARobot: false,
       userTitle: '',
+      fullName: '',
     }
   }
 
@@ -24,8 +25,13 @@ class UserInfoForm extends Component {
     this.setState({
       userTitle: event.target.value,
     })
-    // console.log("Select change")
+  }
+
+  handleFullNameChange=(event) => {
     // console.log(event.target.value)
+    this.setState({
+      fullName: event.target.value,
+    })
   }
 
   render(){
@@ -34,7 +40,8 @@ class UserInfoForm extends Component {
     return (
       <form onSubmit={this.handleFormSubmit} className="form-container">
         <h2>User Information</h2>
-        <label htmlFor="">
+        
+        <label>
           Are you human?
           <input 
             id="not-robot"
@@ -46,8 +53,7 @@ class UserInfoForm extends Component {
         <select 
           value={this.state.userTitle}
           onChange={this.handleSelectChange}
-          name="" 
-          id="">
+        >
             <option value="">--Please select title--</option>
             <option value="mr">Mr.</option>
             <option value="ms">Ms.</option>
@@ -55,7 +61,12 @@ class UserInfoForm extends Component {
             <option value="mx">Mx.</option>
             <option value="dr">Dr.</option>
         </select>
-
+        <input 
+          type="text"
+          placeholder="Please enter full name."
+          value={this.state.fullName}
+          onChange={this.handleFullNameChange}
+        />
         <button type="submit">Submit</button>
       </form>
     )
