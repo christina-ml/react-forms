@@ -14,8 +14,9 @@ class UserInfoForm extends Component {
     console.log("Submit trigger");
   }
 
-  handleCheckboxChange=() => {
-    console.log("Checkbox trigger")
+  handleCheckboxChange=(event) => {
+    console.log(event.target.checked)
+    // console.log("Checkbox trigger")
   }
 
   render(){
@@ -24,14 +25,15 @@ class UserInfoForm extends Component {
     return (
       <form onSubmit={this.handleFormSubmit} className="form-container">
         <h2>User Information</h2>
-        
-        {/* Make a checkbox */}
-        <input 
-          id="not-robot"
-          type="checkbox" 
-          // checked={}
-          onChange={this.handleCheckboxChange}
-        />
+        <label htmlFor="">
+          Are you human?
+          <input 
+            id="not-robot"
+            type="checkbox" 
+            // checked={}
+            onChange={this.handleCheckboxChange}
+          />
+        </label>
 
 
         <button type="submit">Submit</button>
