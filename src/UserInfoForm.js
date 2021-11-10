@@ -15,7 +15,9 @@ class UserInfoForm extends Component {
   }
 
   handleCheckboxChange=(event) => {
-    console.log(event.target.checked)
+    this.setState({
+      notARobot: event.target.checked,
+    })
     // console.log("Checkbox trigger")
   }
 
