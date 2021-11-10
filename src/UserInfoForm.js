@@ -38,37 +38,43 @@ class UserInfoForm extends Component {
     console.log(this.state)
 
     return (
-      <form onSubmit={this.handleFormSubmit} className="form-container">
-        <h2>User Information</h2>
-        
-        <label>
-          Are you human?
+      <div>
+        <div>Current User</div>
+        <div>Title: </div>
+        <div>Full name: </div>
+        <div>Are you a robot?: </div>
+        <form onSubmit={this.handleFormSubmit} className="form-container">
+          <h2>User Information</h2>
+
+          <label>
+            Are you human?
+            <input 
+              id="not-robot"
+              type="checkbox" 
+              checked={this.state.notARobot}
+              onChange={this.handleCheckboxChange}
+            />
+          </label>
+          <select 
+            value={this.state.userTitle}
+            onChange={this.handleSelectChange}
+          >
+              <option value="">--Please select title--</option>
+              <option value="mr">Mr.</option>
+              <option value="ms">Ms.</option>
+              <option value="mrs">Mrs.</option>
+              <option value="mx">Mx.</option>
+              <option value="dr">Dr.</option>
+          </select>
           <input 
-            id="not-robot"
-            type="checkbox" 
-            checked={this.state.notARobot}
-            onChange={this.handleCheckboxChange}
+            type="text"
+            placeholder="Please enter full name."
+            value={this.state.fullName}
+            onChange={this.handleFullNameChange}
           />
-        </label>
-        <select 
-          value={this.state.userTitle}
-          onChange={this.handleSelectChange}
-        >
-            <option value="">--Please select title--</option>
-            <option value="mr">Mr.</option>
-            <option value="ms">Ms.</option>
-            <option value="mrs">Mrs.</option>
-            <option value="mx">Mx.</option>
-            <option value="dr">Dr.</option>
-        </select>
-        <input 
-          type="text"
-          placeholder="Please enter full name."
-          value={this.state.fullName}
-          onChange={this.handleFullNameChange}
-        />
-        <button type="submit">Submit</button>
-      </form>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     )
   }
 }
