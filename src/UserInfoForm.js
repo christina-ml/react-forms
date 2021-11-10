@@ -13,6 +13,16 @@ class UserInfoForm extends Component {
 
   handleFormSubmit=(event) => {
     event.preventDefault();
+    let { fullName, userTitle, notARobot } = this.state;
+    // console.log(fullName, userTitle, notARobot);
+
+    if (notARobot && userTitle && fullName) {
+      alert(
+        `Form submitted! \n ${notARobot} \n ${userTitle} \n ${fullName}`
+      )
+    } else {
+      alert("Please fill out the form completely")
+    }
   }
 
   handleCheckboxChange=(event) => {
