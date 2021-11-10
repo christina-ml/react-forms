@@ -1,9 +1,19 @@
 import { Component } from 'react';
 
+
 class UserInfoForm extends Component {
+
+  handleFormSubmit=() => {
+    console.log("trigger");
+  }
+
     render(){
       return (
-        <div>User info form</div>
+        <form onSubmit={this.handleFormSubmit} className="form-container">
+          <h2>User Information</h2>
+          
+          <button type="submit">Submit</button>
+        </form>
       )
     }
 }
