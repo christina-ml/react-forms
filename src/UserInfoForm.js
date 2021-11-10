@@ -40,9 +40,9 @@ class UserInfoForm extends Component {
     return (
       <div>
         <div>Current User</div>
-        <div>Title: </div>
-        <div>Full name: </div>
-        <div>Are you a robot?: </div>
+        <div>Title: {this.state.userTitle}</div>
+        <div>Full name: {this.state.fullName}</div>
+        <div>Are you a human?: {this.state.notARobot ? "True" : "False"}</div>
         <form onSubmit={this.handleFormSubmit} className="form-container">
           <h2>User Information</h2>
 
